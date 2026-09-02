@@ -51,7 +51,7 @@ const Login = () => {
     try {
 
       await axios.post(
-        'http://localhost:8000/api/auth/login',
+        'https://mini-mern-2.onrender.com/api/auth/login',
 
         userData,
 

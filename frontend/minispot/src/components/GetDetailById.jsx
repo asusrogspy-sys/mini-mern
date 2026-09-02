@@ -18,7 +18,7 @@ function GetDetailById() {
     try {
 
       const getdata = await axios.get(
-        `http://localhost:8000/api/music/get-music/${params.id}`
+       `https://mini-mern-2.onrender.com/api/music/get-music/${params.id}`,
       )
 
       SetDetails(getdata.data)

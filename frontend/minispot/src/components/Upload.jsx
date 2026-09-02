@@ -55,7 +55,7 @@ function Upload () {
 
       const res = await axios.post(
 
-        'http://localhost:8000/api/music/upload',
+        'https://mini-mern-2.onrender.com/api/music/upload',
 
         formdata,
 

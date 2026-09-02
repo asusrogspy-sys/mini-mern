@@ -54,7 +54,7 @@ function Songupdate () {
 
       const res = await axios.patch(
 
-        `http://localhost:8000/api/music/song-update/${params.id}`,
+        `https://mini-mern-2.onrender.com/api/music/song-update/${params.id}`,
 
         formData,
 
@@ -84,7 +84,7 @@ function Songupdate () {
     try {
 
       const res = await axios.get(
-        `http://localhost:8000/api/music/get-music/${params.id}`
+        `https://mini-mern-2.onrender.com/api/music/get-music/${params.id}`
       )
 
       console.log(res.data)

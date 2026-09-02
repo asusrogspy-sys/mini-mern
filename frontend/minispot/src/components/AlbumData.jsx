@@ -22,7 +22,7 @@ function AlbumData() {
   const albumUserdata = async () => {
 
     const res = await axios.get(
-      `http://localhost:8000/api/album/get-album/${params.id}`,
+     `https://mini-mern-2.onrender.com/api/album/get-album/${params.id}`,
       {
         withCredentials: true
       }

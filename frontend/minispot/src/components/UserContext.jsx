@@ -13,7 +13,7 @@ export function UserProvider({ children }) {
 
       try {
         const response = await axios.get(
-          'http://localhost:8000/api/auth/',
+          'https://mini-mern-2.onrender.com/api/auth/',
           {
             withCredentials: true
           }

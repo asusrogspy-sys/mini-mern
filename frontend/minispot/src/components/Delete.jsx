@@ -12,7 +12,7 @@ const Delete = ({ id, onDelete }) => {
     try {
 
       const res = await axios.delete(
-        `http://localhost:8000/api/music/song-delete/${id}`,
+      `https://mini-mern-2.onrender.com/api/music/song-delete/${id}`,
         {
           withCredentials: true
         }

@@ -41,7 +41,7 @@ function CreateAlbum () {
     try {
 
       const res = await axios.post(
-        `http://localhost:8000/api/album/create-album`,
+      `https://mini-mern-2.onrender.com/api/album/create-album`,
         albumName,
         {
           withCredentials: true

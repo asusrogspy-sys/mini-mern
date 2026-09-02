@@ -44,7 +44,7 @@ function Getallmusic () {
         // await new Promise(resolve => setTimeout(resolve, 2000))
 
         const response = await axios.get(
-          `http://localhost:8000/api/music/getAll-songs?page=${pg}&limit=${lm}&search=${search}`
+          `https://mini-mern-2.onrender.com/api/music/getAll-songs?page=${pg}&limit=${lm}&search=${search}`
         )
 
         setGetMusic(response.data.music)
@@ -333,7 +333,7 @@ function Getallmusic () {
     try {
 
       const res = await axios.post(
-        `http://localhost:8000/api/album/add-song-album`,
+        `https://mini-mern-2.onrender.com/api/album/add-song-album`,
         {
           songId: songId,
           albumId: albumId
