@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const ConnectDb = async () => {
-  await mongoose.connect('mongodb://admin:admin@localhost:27017/miniSpot?authSource=admin')
+  await mongoose.connect(process.env.MONGO_URI)
   console.log('DB Connected')
 }
 
