@@ -18,11 +18,11 @@ function ProtectedRoute({ children }) {
           
         )
         console.log(res.data)
-
         setIsAuthenticated(true)
       } catch (error) {
         console.log('AUTH ERROR:', error)
         setIsAuthenticated(false)
+        console.log('AUTH FAILED', error.response?.status)
       } finally {
         setLoading(false)
       }
