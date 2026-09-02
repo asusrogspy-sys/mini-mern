@@ -25,7 +25,7 @@ const registerUser = async (req, res) => {
     const userCredentials = await model.create({
       username,
       email,
-      password:hash,
+      password: hash,
       role
     })
 
@@ -48,7 +48,7 @@ const loginUser = async (req, res) => {
 
   try {
     const user = await model.findOne({
-      $or: [{ username:usernameoremail }, { email:usernameoremail }]
+      $or: [{ username: usernameoremail }, { email: usernameoremail }]
     })
 
     if (!user) {
@@ -70,7 +70,11 @@ const loginUser = async (req, res) => {
     const decoded = jwt.sign({ token: user._id }, process.env.JWT_SECRET_KEY)
     console.log(decoded)
 
-    res.cookie('Token', decoded)
+    res.cookie('Token', decoded, {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'none'
+    })
 
     res.status(200).json({
       message: 'Login Sucess',
