@@ -12,7 +12,7 @@ app.use(cookie())
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://mini-mern-1234-chi.vercel.app"
+    "https://mini-mern-blush.vercel.app"
   ],
   credentials: true
 }))
