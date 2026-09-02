@@ -1,66 +1,47 @@
-// import { Navigate } from 'react-router-dom'
-
-// function ProtectedRoute ({ children }) {
-
-//   // const [getData, setGetData] = useState({})
-
-//   const cookie = document.cookie
-
-//   const split = cookie.split(';')
-
-//   const findCookie = split.find(cookie => cookie.startsWith('Token'))
-
-//   // useEffect(() => {
-//   //   const getUser = async () => {
-//   //     try {
-//   //       const response = await axios.get(
-//   //         'http://localhost:8000/api/auth/',
-//   //         {
-//   //           withCredentials: true
-//   //         }
-//   //       )
-
-//   //       console.log(response.data)
-
-//   //       setGetData(response.data)
-
-//   //     } catch (error) {
-//   //       console.log(error.message)
-//   //     }
-//   //   }
-
-//   //   if (findCookie) {
-//   //     getUser()
-//   //   }
-
-//   // }, [findCookie])
-
-
-//   if (!findCookie) {
-
-//     return <Navigate to={'/login'} />
-
-//   }
-
-
-//   return (
-
-//     <div className='min-h-screen w-full bg-black'>
-
-//       {/* <Home getData={getData} /> */}
-
-//       {children}
-
-//     </div>
-
-//   )
-
-// }
-
-// export default ProtectedRoute
-
+ import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { Navigate } from 'react-router-dom'
 
 function ProtectedRoute({ children }) {
+  const [loading, setLoading] = useState(true)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        await axios.get(
+          'https://mini-mern-2.onrender.com/api/auth/',
+          {
+            withCredentials: true
+          }
+        )
+
+        setIsAuthenticated(true)
+      } catch (error) {
+        console.log('AUTH ERROR:', error)
+        setIsAuthenticated(false)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    getUser()
+  }, [])
+
+  if (loading) {
+    return (
+      <div className='min-h-screen w-full bg-black flex items-center justify-center'>
+        <p className='text-green-500 font-mono'>
+          Checking authentication...
+        </p>
+      </div>
+    )
+  }
+
+  if (!isAuthenticated) {
+    return <Navigate to='/login' replace />
+  }
+
   return (
     <div className='min-h-screen w-full bg-black'>
       {children}
@@ -68,4 +49,4 @@ function ProtectedRoute({ children }) {
   )
 }
 
-export default ProtectedRoute 
+export default ProtectedRoute
