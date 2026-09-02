@@ -10,7 +10,10 @@ app.set("json spaces", 2)
 app.use(express.json())
 app.use(cookie())
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    "https://mini-mern-1234-chi.vercel.app"
+  ],
   credentials: true
 }))
  
