@@ -9,12 +9,15 @@ function ProtectedRoute({ children }) {
   useEffect(() => {
     const getUser = async () => {
       try {
-        await axios.get(
+      const res =  await axios.get(
           'https://mini-mern-2.onrender.com/api/auth/',
           {
             withCredentials: true
           }
+
+          
         )
+        console.log(res.data)
 
         setIsAuthenticated(true)
       } catch (error) {
