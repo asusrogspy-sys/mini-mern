@@ -6,8 +6,8 @@ import ProtectedRoute from './components/ProtectedRoute'
 import Getallmusic from './components/Getallmusic'
 import Upload from './components/Upload'
 import GetDetailById from './components/GetDetailById'
-import Songupdate from './components/Songupdate'
 import CreateAlbum from './components/CreateAlbum'
+import Songupdate from './components/SongUpdate'
 import AlbumData from './components/AlbumData';
 
 const App = () => {
