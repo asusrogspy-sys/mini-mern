@@ -12,6 +12,6 @@
     "multer": "^2.2.0"
   },
   "scripts": {
-    "dev": "npx nodemon ../server.js"
+    "dev": "npx nodemon server.js"
   }
 }
