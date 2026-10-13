@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom'
 function ProtectedRoute({ children }) {
   const [loading, setLoading] = useState(true)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
+console.log(loading)
 
   useEffect(() => {
     const getUser = async () => {
@@ -31,15 +32,7 @@ function ProtectedRoute({ children }) {
     getUser()
   }, [])
 
-  if (loading) {
-    return (
-      <div className='min-h-screen w-full bg-black flex items-center justify-center'>
-        <p className='text-green-500 font-mono'>
-          Checking authentication...
-        </p>
-      </div>
-    )
-  }
+ 
 
   if (!isAuthenticated) {
     return <Navigate to='/login' replace />

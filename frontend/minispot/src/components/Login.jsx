@@ -9,7 +9,6 @@ const Login = () => {
 
   const [userData, setUserData] = useState({
     usernameoremail: '',
-
     password: ''
   })
 
