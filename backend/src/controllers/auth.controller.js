@@ -70,13 +70,7 @@ const loginUser = async (req, res) => {
     const decoded = jwt.sign({ token: user._id }, process.env.JWT_SECRET_KEY)
     console.log(decoded)
 
-    res.cookie('Token', decoded, {
-      httpOnly: true,
-      secure: true,
-      sameSite: 'none',
-      path: '/',
-      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
-    })
+    res.cookie('Token', decoded)
 
     res.status(200).json({
       message: 'Login Sucess',
